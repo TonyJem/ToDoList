@@ -59,14 +59,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection id="d69-Fo-543">
+                            <tableViewSection headerTitle="Basic Info" id="d69-Fo-543">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DFl-03-Ivp">
-                                        <rect key="frame" x="0.0" y="18" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DFl-03-Ivp" id="euP-C7-Xns">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zkP-Px-j6f">
+                                                    <rect key="frame" x="20" y="2" width="374" height="39.5"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y5-EL-VJn">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="39.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="0m0-2z-pvz"/>
+                                                            </constraints>
+                                                            <state key="normal" image="Unchecked"/>
+                                                            <state key="disabled" image="Unchecked"/>
+                                                            <state key="selected" image="Checked"/>
+                                                        </button>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Remind me to..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1qu-EM-7Ns">
+                                                            <rect key="frame" x="50" y="0.0" width="324" height="39.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="zkP-Px-j6f" secondAttribute="bottom" constant="2" id="15J-Dn-q5c"/>
+                                                <constraint firstItem="zkP-Px-j6f" firstAttribute="leading" secondItem="euP-C7-Xns" secondAttribute="leading" constant="20" id="BsD-Pc-6eF"/>
+                                                <constraint firstAttribute="trailing" secondItem="zkP-Px-j6f" secondAttribute="trailing" constant="20" id="jAl-Zx-6kq"/>
+                                                <constraint firstItem="zkP-Px-j6f" firstAttribute="top" secondItem="euP-C7-Xns" secondAttribute="top" constant="2" id="ued-vk-IMB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -74,7 +101,7 @@
                             <tableViewSection id="P3a-zj-lSY">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JOk-xl-g5T">
-                                        <rect key="frame" x="0.0" y="97.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="135" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JOk-xl-g5T" id="yPR-Ig-qX6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -86,7 +113,7 @@
                             <tableViewSection id="4Ix-UJ-U7a">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KCu-8f-eTt">
-                                        <rect key="frame" x="0.0" y="177" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="214.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KCu-8f-eTt" id="vby-Wt-ELB">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -117,7 +144,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z1X-Pe-EEO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="erF-i0-mIV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2835" y="814"/>
+            <point key="canvasLocation" x="2834.7826086956525" y="813.61607142857144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WNZ-rF-wEr">
@@ -152,4 +179,8 @@
             <point key="canvasLocation" x="131" y="814"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Checked" width="44" height="44"/>
+        <image name="Unchecked" width="44" height="44"/>
+    </resources>
 </document>
