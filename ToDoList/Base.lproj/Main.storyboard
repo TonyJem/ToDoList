@@ -101,9 +101,21 @@
                             <outlet property="delegate" destination="T8N-vv-4J3" id="eVh-6e-eif"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New ToDo" largeTitleDisplayMode="never" id="9W1-SU-fyq"/>
+                    <navigationItem key="navigationItem" title="New ToDo" largeTitleDisplayMode="never" id="9W1-SU-fyq">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pJs-fO-K1f">
+                            <connections>
+                                <segue destination="erF-i0-mIV" kind="unwind" identifier="cancelUnwind" unwindAction="unwindToToDoListWithSegue:" id="oum-u5-RGR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9uH-QV-i3A">
+                            <connections>
+                                <segue destination="erF-i0-mIV" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoListWithSegue:" id="0Q6-OV-3db"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z1X-Pe-EEO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="erF-i0-mIV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2835" y="814"/>
         </scene>
