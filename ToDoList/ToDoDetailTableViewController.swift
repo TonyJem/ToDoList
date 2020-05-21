@@ -14,7 +14,18 @@ class ToDoDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dueDatePickerView.date = Date().addingTimeInterval(20*60*60)
+        
+        if let todo = todo { // When "Edit mode", then todo is coming from parent TableView with it's data:
+//          load this data to child TableView items:
+            navigationItem.title = "To-Do"
+            titleTextField.text = todo.title
+            isCompleteButton.isSelected = todo.isComplite
+            dueDatePickerView.date = todo.dueDate
+            notesTextView.text = todo.notes
+        } else { // When "+ mode", then todo is nil and in child TableView all items will be setted to take new object's data from user:
+            dueDatePickerView.date = Date().addingTimeInterval(20*60*60)
+        }
+        
         updateDueDateLabel(date: dueDatePickerView.date)
         updateSaveButtonState()
     }

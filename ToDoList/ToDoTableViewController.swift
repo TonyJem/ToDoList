@@ -80,21 +80,43 @@ class ToDoTableViewController: UITableViewController {
      */
     
      // MARK: - Navigation
+
+    //  unwind from child TableView back to Parent TableView when "Save" or "Cancel" buttons were tapped:
     @IBAction func unwindToToDoList(segue: UIStoryboardSegue){
         
         //    Verify that "saveUnwind" segue is being called:
         guard segue.identifier == "saveUnwind" else { return }
         
-        //    Set dismising view controller:
+        //    Set dismissing view controller:
         let sourceViewController = segue.source as! ToDoDetailTableViewController
         
         //    Check to see if a model object exists in the segue's source:
         if let todo = sourceViewController.todo {
             
-            //    If so, then add model object to the array and to the new table cell:
-            let newIndexPath = IndexPath(row: todos.count, section: 0)
-            todos.append(todo)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            // Check if in parent TableView was selected Row, if yes it means we are "editing":
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                todos[selectedIndexPath.row] = todo
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                // if in parent TableView was not selected any Row ("selectedIndexPath" is nil)
+                // It happens after user tapped "+" button, it means we are "creating New object",
+                //  so need to add it to the array and to the new table cell:
+                let newIndexPath = IndexPath(row: todos.count, section: 0)
+                todos.append(todo)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+    }
+
+    //  Transfer data from Row to child TableView when Row in parent TableView is selected:
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "EditToDo",
+            let navController = segue.destination as? UINavigationController,
+            let todoDetailTableViewController = navController.topViewController as? ToDoDetailTableViewController
+        {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let selectedToDo = todos[indexPath.row]
+            todoDetailTableViewController.todo = selectedToDo
         }
     }
 }
