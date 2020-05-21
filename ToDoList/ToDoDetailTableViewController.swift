@@ -34,6 +34,11 @@ class ToDoDetailTableViewController: UITableViewController {
         titleTextField.resignFirstResponder()
     }
 
+    //    MARK: - Change "isCompleteButton" Button image:
+    @IBAction func isCompleteButtonTapped(_ sender: UIButton) {
+        isCompleteButton.isSelected = !isCompleteButton.isSelected
+    }
+
     //    MARK: - Outlets:
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var isCompleteButton: UIButton!

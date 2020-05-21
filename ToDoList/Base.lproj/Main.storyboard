@@ -79,6 +79,9 @@
                                                             <state key="normal" image="Unchecked"/>
                                                             <state key="disabled" image="Unchecked"/>
                                                             <state key="selected" image="Checked"/>
+                                                            <connections>
+                                                                <action selector="isCompleteButtonTapped:" destination="T8N-vv-4J3" eventType="touchUpInside" id="YYe-Mv-Tkw"/>
+                                                            </connections>
                                                         </button>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Remind me to..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1qu-EM-7Ns">
                                                             <rect key="frame" x="50" y="0.0" width="324" height="39.5"/>
