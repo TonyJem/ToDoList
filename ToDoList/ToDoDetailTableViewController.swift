@@ -12,7 +12,8 @@ class ToDoDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        updateDueDateLabel(date: dueDatePickerView.date)
         updateSaveButtonState()
     }
 
@@ -37,6 +38,15 @@ class ToDoDetailTableViewController: UITableViewController {
     //    MARK: - Change "isCompleteButton" Button image:
     @IBAction func isCompleteButtonTapped(_ sender: UIButton) {
         isCompleteButton.isSelected = !isCompleteButton.isSelected
+    }
+
+    //    MARK: - Update Date Label:
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        updateDueDateLabel(date: dueDatePickerView.date)
+    }
+
+    func updateDueDateLabel(date: Date){
+        dueDateLabel.text = ToDo.dueDateFormatter.string(from: date)
     }
 
     //    MARK: - Outlets:

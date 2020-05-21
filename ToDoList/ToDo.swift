@@ -14,6 +14,14 @@ struct ToDo{
     var dueDate: Date
     var notes: String?
     
+//    Configure DateFormatter:
+    static let dueDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
+    
 //    Load data from file:
     static func loadToDos() -> [ToDo]? {
         return nil
