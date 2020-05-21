@@ -9,7 +9,9 @@
 import UIKit
 
 class ToDoDetailTableViewController: UITableViewController {
-    
+
+    var todo: ToDo?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dueDatePickerView.date = Date().addingTimeInterval(20*60*60)
@@ -28,6 +30,21 @@ class ToDoDetailTableViewController: UITableViewController {
     func updateSaveButtonState(){
         let text = titleTextField.text ?? ""
         saveButton.isEnabled = !text.isEmpty
+    }
+
+    //    Read the values from the appropriate controls:
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "saveUnwind" else { return }
+        
+        let title = titleTextField.text!
+        let isComplete = isCompleteButton.isSelected
+        let dueDate = dueDatePickerView.date
+        let notes = notesTextView.text
+        
+        //    Create model object and pass the readed values into it:
+        todo = ToDo(title: title, isComplite: isComplete, dueDate: dueDate, notes: notes)
     }
 
     //    MARK: - Dismiss Keyboard on Return:

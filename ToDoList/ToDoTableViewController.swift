@@ -83,6 +83,20 @@ class ToDoTableViewController: UITableViewController {
      
     @IBAction func unwindToToDoList(segue: UIStoryboardSegue){
         
+        //    Verify that "saveUnwind" segue is being called:
+        guard segue.identifier == "saveUnwind" else { return }
+        
+        //    Set dismising view controller:
+        let sourceViewController = segue.source as! ToDoDetailTableViewController
+        
+        //    Check to see if a model object exists in the segue's source:
+        if let todo = sourceViewController.todo {
+            
+            //    If so, then add model object to the array and to the new table cell:
+            let newIndexPath = IndexPath(row: todos.count, section: 0)
+            todos.append(todo)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
     }
         /*
      // In a storyboard-based application, you will often want to do a little preparation before navigation
