@@ -9,15 +9,27 @@
 import UIKit
 
 class ToDoDetailTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        updateSaveButtonState()
     }
     
+    //    MARK: - Save button:
+    @IBOutlet var saveButton: UIBarButtonItem!
     
-//    MARK: - Outlets:
+    @IBAction func textEditingChanged(_ sender: UITextField) {
+        updateSaveButtonState()
+    }
+    
+    //    Enable "Save" button if TextField is not Empty:
+    func updateSaveButtonState(){
+        let text = titleTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
+    
+    //    MARK: - Outlets:
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var isCompleteButton: UIButton!
     @IBOutlet var dueDateLabel: UILabel!

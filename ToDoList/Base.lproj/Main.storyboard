@@ -84,6 +84,9 @@
                                                             <rect key="frame" x="50" y="0.0" width="324" height="39.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="textEditingChanged:" destination="T8N-vv-4J3" eventType="editingDidEnd" id="FDo-lM-RcX"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -195,6 +198,7 @@
                         <outlet property="dueDatePickerView" destination="3Q8-4f-9dy" id="o3q-kd-tbS"/>
                         <outlet property="isCompleteButton" destination="9Y5-EL-VJn" id="g4h-Lm-Jen"/>
                         <outlet property="notesTextView" destination="uVD-WY-84X" id="l9S-B1-a2t"/>
+                        <outlet property="saveButton" destination="9uH-QV-i3A" id="Zzl-VN-EGd"/>
                         <outlet property="titleTextField" destination="1qu-EM-7Ns" id="hdK-Bd-4FW"/>
                     </connections>
                 </tableViewController>
