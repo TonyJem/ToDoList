@@ -19,6 +19,13 @@ class ToDoDetailTableViewController: UITableViewController {
         updateSaveButtonState()
     }
 
+    //    MARK: - Outlets:
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var isCompleteButton: UIButton!
+    @IBOutlet var dueDateLabel: UILabel!
+    @IBOutlet var dueDatePickerView: UIDatePicker!
+    @IBOutlet var notesTextView: UITextView!
+
     //    MARK: - Save button:
     @IBOutlet var saveButton: UIBarButtonItem!
     
@@ -97,11 +104,4 @@ class ToDoDetailTableViewController: UITableViewController {
             tableView.endUpdates()
         }
     }
-
-    //    MARK: - Outlets:
-    @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var isCompleteButton: UIButton!
-    @IBOutlet var dueDateLabel: UILabel!
-    @IBOutlet var dueDatePickerView: UIDatePicker!
-    @IBOutlet var notesTextView: UITextView!
 }
