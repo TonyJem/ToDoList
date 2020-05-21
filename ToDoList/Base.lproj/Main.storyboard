@@ -85,6 +85,7 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
+                                                                <action selector="returnPressed:" destination="T8N-vv-4J3" eventType="primaryActionTriggered" id="lIb-gU-29i"/>
                                                                 <action selector="textEditingChanged:" destination="T8N-vv-4J3" eventType="editingDidEnd" id="FDo-lM-RcX"/>
                                                             </connections>
                                                         </textField>
