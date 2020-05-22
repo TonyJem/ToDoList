@@ -34,6 +34,13 @@ struct ToDo: Codable {
         return try? propertyListDecoder.decode(Array<ToDo>.self, from: codedToDos)
     }
 
+//    Save data to file:
+    static func saveToDos(_ todos: [ToDo]) {
+        let propertyListEncoder = PropertyListEncoder()
+        let codedToDos = try? propertyListEncoder.encode(todos)
+        try? codedToDos?.write(to: ArchiveURL, options: .noFileProtection)
+    }
+
 //    Load sample data from array below:
     static func loadSampleToDos() -> [ToDo] {
         let todo1 = ToDo(title: "ToDo One", isComplite: false, dueDate: Date(), notes: "Notes 1")
