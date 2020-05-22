@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct ToDo{
+struct ToDo: Codable {
     var title: String
     var isComplite: Bool
     var dueDate: Date
     var notes: String?
-    
+
 //    Configure DateFormatter:
     static let dueDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -21,12 +21,16 @@ struct ToDo{
         formatter.timeStyle = .short
         return formatter
     }()
-    
+
+//    Configure path for Data Store:
+    static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("todos").appendingPathExtension("plist")
+
 //    Load data from file:
     static func loadToDos() -> [ToDo]? {
         return nil
     }
-    
+
 //    Load sample data from array below:
     static func loadSampleToDos() -> [ToDo] {
         let todo1 = ToDo(title: "ToDo One", isComplite: false, dueDate: Date(), notes: "Notes 1")
