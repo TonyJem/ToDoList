@@ -14,6 +14,14 @@ struct ToDo: Codable {
     var dueDate: Date
     var notes: String?
 
+    var status: String {
+        if isComplite {
+            return "Already complited"
+        } else {
+            return "Not done yet"
+        }
+    }
+    
 //    Configure DateFormatter:
     static let dueDateFormatter: DateFormatter = {
         let formatter = DateFormatter()

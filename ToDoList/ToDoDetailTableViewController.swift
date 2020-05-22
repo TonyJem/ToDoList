@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class ToDoDetailTableViewController: UITableViewController {
+class ToDoDetailTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
     var todo: ToDo?
 
@@ -63,6 +64,33 @@ class ToDoDetailTableViewController: UITableViewController {
         
         //    Create model object and pass the readed values into it:
         todo = ToDo(title: title, isComplite: isComplete, dueDate: dueDate, notes: notes)
+    }
+
+    // MARK: - Send Email Button:
+    @IBAction func sendEmailButtonTapped(_ sender: UIBarButtonItem) {
+        // Check if user's device is can sed Emails:
+        guard MFMailComposeViewController.canSendMail() else { return }
+        
+        let mailComposer = MFMailComposeViewController()
+        mailComposer.mailComposeDelegate = self
+        if let todo = todo {
+            mailComposer.setSubject(todo.title)
+            let notesFromToDo = todo.notes ?? ""
+            let messageBody: String = """
+                Hello, here is a new ToDo sent from \"ToDo\" App.
+            Title: \(todo.title)
+            Status: \(todo.status)
+            Due Date: \(ToDo.dueDateFormatter.string(from: todo.dueDate))
+            Extra notes:  \(notesFromToDo)
+            """
+            mailComposer.setMessageBody(messageBody, isHTML: false)
+        }
+        present(mailComposer, animated: true, completion: nil)
+    }
+
+    //  Dismiss Email sending view after e-mail is sent:
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
     }
 
     //    MARK: - Dismiss Keyboard on Return:

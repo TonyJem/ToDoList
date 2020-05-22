@@ -219,11 +219,18 @@
                                 <segue destination="erF-i0-mIV" kind="unwind" identifier="cancelUnwind" unwindAction="unwindToToDoListWithSegue:" id="oum-u5-RGR"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9uH-QV-i3A">
-                            <connections>
-                                <segue destination="erF-i0-mIV" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoListWithSegue:" id="0Q6-OV-3db"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="9uH-QV-i3A">
+                                <connections>
+                                    <segue destination="erF-i0-mIV" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoListWithSegue:" id="0Q6-OV-3db"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="vN4-pz-gzL">
+                                <connections>
+                                    <action selector="sendEmailButtonTapped:" destination="T8N-vv-4J3" id="xCm-py-A3v"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="dueDateLabel" destination="eIq-0B-Fvy" id="2dH-3F-dcm"/>
