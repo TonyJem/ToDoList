@@ -36,18 +36,17 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
     }
     
     // MARK: - Table view data source
-    
+
     //    Number of sections:
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     //    Number of rows:
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
     }
-    
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellIdentifier") as? ToDoCell else {
             fatalError("Could not dequeue a cell")
@@ -60,13 +59,12 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
         
         return cell
     }
-    
-    
+
      // Enable rows to be editable:
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true    // Return false if you do not want the specified item to be editable.
      }
-    
+
     // Enable rows to be deleted when "Edit" mode is On:
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -75,22 +73,7 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
+
      // MARK: - Navigation
 
     //  unwind from child TableView back to Parent TableView when "Save" or "Cancel" buttons were tapped:
