@@ -28,7 +28,10 @@ struct ToDo: Codable {
 
 //    Load data from file:
     static func loadToDos() -> [ToDo]? {
-        return nil
+        guard let codedToDos = try? Data(contentsOf: ArchiveURL) else {return nil}
+        
+        let propertyListDecoder = PropertyListDecoder()
+        return try? propertyListDecoder.decode(Array<ToDo>.self, from: codedToDos)
     }
 
 //    Load sample data from array below:
