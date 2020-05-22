@@ -17,6 +17,7 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
             todo.isComplite = !todo.isComplite
             todos[indexPath.row] = todo
             tableView.reloadRows(at: [indexPath], with: .automatic)
+            ToDo.saveToDos(todos)
         }
     }
 
@@ -71,6 +72,7 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
             // Delete the row from the data array and from Table View:
             todos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            ToDo.saveToDos(todos)
         }
     }
 
@@ -101,6 +103,7 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
+        ToDo.saveToDos(todos)
     }
 
     //  Transfer data from Row to child TableView when Row in parent TableView is selected:
