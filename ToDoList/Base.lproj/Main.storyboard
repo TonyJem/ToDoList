@@ -15,23 +15,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" textLabel="fsn-qk-BdB" style="IBUITableViewCellStyleDefault" id="FrQ-pv-efE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="FrQ-pv-efE" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FrQ-pv-efE" id="0bn-uG-aWp">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="right" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FrQ-pv-efE" id="0bn-uG-aWp">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fsn-qk-BdB">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXh-uC-AKh">
+                                            <rect key="frame" x="8" y="9" width="26" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="26" id="20G-CH-8bX"/>
+                                                <constraint firstAttribute="height" constant="26" id="a1V-kT-TdB"/>
+                                            </constraints>
+                                            <state key="normal" image="Unchecked"/>
+                                            <state key="disabled" image="Unchecked"/>
+                                            <state key="selected" image="Checked"/>
+                                            <connections>
+                                                <action selector="completeButtonTapped:" destination="FrQ-pv-efE" eventType="touchUpInside" id="pau-N2-Rdg"/>
+                                                <action selector="isCompleteButtonTapped:" destination="T8N-vv-4J3" eventType="touchUpInside" id="G5e-bh-pxz"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOQ-VA-Vyq">
+                                            <rect key="frame" x="42" y="11.5" width="364" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MOQ-VA-Vyq" firstAttribute="centerY" secondItem="0bn-uG-aWp" secondAttribute="centerY" id="2lc-wi-Qa7"/>
+                                        <constraint firstItem="SXh-uC-AKh" firstAttribute="leading" secondItem="0bn-uG-aWp" secondAttribute="leading" constant="8" id="51M-cS-Ccl"/>
+                                        <constraint firstItem="SXh-uC-AKh" firstAttribute="centerY" secondItem="0bn-uG-aWp" secondAttribute="centerY" id="HNg-Xy-Lj2"/>
+                                        <constraint firstItem="MOQ-VA-Vyq" firstAttribute="leading" secondItem="SXh-uC-AKh" secondAttribute="trailing" constant="8" id="cm9-2f-jTW"/>
+                                        <constraint firstAttribute="trailing" secondItem="MOQ-VA-Vyq" secondAttribute="trailing" constant="8" id="pVg-qt-O4o"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="isCompleteButton" destination="SXh-uC-AKh" id="GZY-wO-EKI"/>
+                                    <outlet property="titleLabel" destination="MOQ-VA-Vyq" id="YAR-cS-XBR"/>
                                     <segue destination="Eoc-s4-IPr" kind="presentation" identifier="EditToDo" id="D9k-dv-FxC"/>
                                 </connections>
                             </tableViewCell>
@@ -51,7 +73,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke4-a0-Zbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="815"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="814.95535714285711"/>
         </scene>
         <!--New ToDo-->
         <scene sceneID="HCA-Bq-GK3">
