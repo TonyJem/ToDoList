@@ -4,9 +4,17 @@
 //
 //  Created by Office-iMac on 2020-05-20.
 //  Copyright © 2020 Tony Jem. All rights reserved.
-//
+// For SearchBar with some ajustments was used code from this tutorial: https://www.raywenderlich.com/4363809-uisearchcontroller-tutorial-getting-started#toc-anchor-003
 
 import UIKit
+
+// Essential method to conform to protocol UISearchResultsUpdating:
+extension ToDoTableViewController: UISearchResultsUpdating {
+    func updateSearchResults (for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
+}
 
 class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
 
@@ -34,8 +42,48 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
         }
         // Add "Edit" button in navigation bar for switching On/Off "Edit" mode:
          self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        // Set Up SearchController's Parameters:
+            //  ToDoTableViewController will be informed about any changes within the Search Bar:
+            searchController.searchResultsUpdater = self
+            //  Do not need to obscure the parent VieWController:
+            searchController.obscuresBackgroundDuringPresentation = false
+            //  Text to show in placeholder:
+            searchController.searchBar.placeholder = "Search ToDos..."
+            //  Put searchBar to navigation bar:
+            self.navigationItem.searchController = self.searchController
+            //  Ensure that searchBar doesn't remain on the screen if the user navigates to another view controller while the UISearchController is active:
+            definesPresentationContext = true
+    }
+
+    // MARK: - Search Bar:
+    let searchController = UISearchController(searchResultsController: nil) //By puting nil, we tell to SearchBar that results will be desplayed in same ViewController
+    
+    var filteredToDos: [ToDo] = [] // hold candidates that the user searches for.
+    var isSearchBarEmpty: Bool { // Computed property to return True if the text typed in the search bar is empty.
+        return searchController.searchBar.text?.isEmpty ?? true
     }
     
+    var isFiltering: Bool { // Computed property to determnine if user is currently filtering results or not.
+      return searchController.isActive && !isSearchBarEmpty
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+//    Filter ToDo's titles based on searchText:
+    func filterContentForSearchText(_ searchText: String) {
+      filteredToDos = todos.filter { (todo: ToDo) -> Bool in
+        return todo.title.lowercased().contains(searchText.lowercased())
+      }
+      
+      tableView.reloadData()
+    }
+
     // MARK: - Table view data source
 
     //    Number of sections:
@@ -45,15 +93,25 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
 
     //    Number of rows:
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todos.count
+        if isFiltering { // Check whether the user is searching or not
+            return filteredToDos.count
+        } else {
+            return todos.count
+        }
     }
 
+    //    Cell for Row at:
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellIdentifier") as? ToDoCell else {
             fatalError("Could not dequeue a cell")
         }
         
-        let todo = todos[indexPath.row]
+        let todo: ToDo
+        if isFiltering{ // Check whether the user is searching or not
+            todo = filteredToDos[indexPath.row]
+        } else {
+            todo = todos[indexPath.row]
+        }
         cell.titleLabel?.text = todo.title
         cell.isCompleteButton.isSelected = todo.isComplite
         cell.delegate = self
@@ -113,7 +171,14 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
             let todoDetailTableViewController = navController.topViewController as? ToDoDetailTableViewController
         {
             let indexPath = tableView.indexPathForSelectedRow!
-            let selectedToDo = todos[indexPath.row]
+            
+            let selectedToDo: ToDo
+            if isFiltering{ // Check whether the user is searching or not
+                selectedToDo = filteredToDos[indexPath.row]
+            } else {
+                selectedToDo = todos[indexPath.row]
+            }
+            
             todoDetailTableViewController.todo = selectedToDo
         }
     }
