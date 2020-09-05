@@ -41,7 +41,7 @@ There is possible to add new ToDo by pressing _Add_ button in top-right screen c
 <br>
 <br>
 
-2. The __second Table View__ is a Static Table View, where each cell is in its own section. There are three sections which enables User to:  new ToDo's:
+2. The __second Table View__ is a Static Table View, where each cell is in it's own section. There are three sections, where is essential to:
   * Add Basic Info
   * Set Due Date
   * Add some Notes for better ToDo's describtion
