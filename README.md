@@ -1,5 +1,5 @@
 # ToDo List
-Simple iOS App - done as training task from Apple Education Lab for learning purposes in 2020 May
+Simple iOS App, done as guided project for learning purposes in 2020 May.
 
 [Description](#description)
 
@@ -8,14 +8,19 @@ Simple iOS App - done as training task from Apple Education Lab for learning pur
 [References](#references)
 
 ## Description:
-The objective of this lab is to implement _Intermediate Table View_ features into an App that keeps track of user's favorite Books.
+This App manages a list of ToDo items and stores it away for later retrieval. User can add, modify, and delete items in the list using a custom input screen. Each ToDo has a due date and a set of notes; it can be marked as complete, but remains in the list until the user deletes it.
 
-#### This app accomplish three main goals:
-  1. Replace existing regular _View Controller_ with a _Static Table View_”
+#### This app handles the following actions:
+
+  1. Display the list.
   
-  2. Create a custom table view cell to display the details of each Book in the main list.
+  2. Add items to the list.
   
-  3. Add the capability to delete Books from the main list.
+  3. Edit existing items on the list.
+  
+  4. Delete items from the list.
+  
+  5. Automatically save the list to disk.
 <br>
 <br>
 <br>
@@ -62,5 +67,5 @@ This list enables User to see all added Books, also select and edit each Book by
 <br>
 
 ## References:
-“App Development with Swift”. Apple Inc. - Education, 2019. Apple Books. pages: 654-656
+“App Development with Swift”. Apple Inc. - Education, 2019. Apple Books. pages: 737-779
 https://books.apple.com/us/book/app-development-with-swift/id1465002990
