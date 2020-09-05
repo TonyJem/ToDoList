@@ -20,7 +20,9 @@ This App manages a list of ToDo items and stores it away for later retrieval. Us
   
   4. Delete items from the list.
   
-  5. Automatically save the list to disk.
+  5. Search field enables User to search throught items.
+  
+  6. Automatically save the list to disk.
 <br>
 <br>
 <br>
@@ -31,27 +33,31 @@ There are two table views used for that app:
 <img src="/ToDoList-screens/tableViews.png" width="95%">
 <br>
 
-1. The __first Table View__ is a Prototype Table View and initially is an empty table, where User can start adding an information about his favorite Books.
+1. The __first Table View__ is a Prototype Table View and initially is a list with loaded from disk data that was saved previuosly, since App was used last time. In that list each raw represents one single ToDo:
 
 <img src="/ToDoList-screens/to-do-list_01.png" width="33%"> 
 
-After User has pressed _Add_ button, next will be initialized _second Table View_.
+There is possible to add new ToDo by pressing _Add_ button in top-right screen corner. After User has pressed _Add_ button, next will be initialized _second Table View_.
 <br>
 <br>
 
-2. The __second Table View__ is a Static Table View, where each text field is in its own cell and each cell is in its own section. There are five sections. First four enables User to add such information as:
-  * Book Title
-  * Author
-  * Genre
-  * Length
+2. The __second Table View__ is a Static Table View, where each cell is in its own section. There are three sections which enables User to:  new ToDo's:
+  * Add Basic Info
+  * Set Due Date
+  * Add some Notes for better ToDo's describtion
   
 <img src="/ToDoList-screens/to-do-list_02.png" width="33%"> 
 
-And the last section is for the _Save_ button.
-<br>
-<br>
+After adding all esential information, in top-right screen's corner it will be enabled _Save_ button, which enables to save new ToDo to the list. When new ToDo was added and _Save_ button was pressed, App will come back to the first screen. Here again will be provided a list containing all ToDos with included recently saved ToDo.
 
-3. After information about Book is added and _Save_ button was pressed, App will come back to the first screen. Here again will be provided a list containing all saved Books with included recently saved Book:
+
+
+
+
+
+
+
+
 
 <img src="/ToDoList-screens/to-do-list_03.png" width="33%"> <img src="/ToDoList-screens/to-do-list_04.png" width="33%"> <img src="/ToDoList-screens/to-do-list_05.png" width="33%">
 
