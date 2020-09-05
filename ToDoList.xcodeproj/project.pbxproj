@@ -64,8 +64,8 @@
 			children = (
 				3A67CAF62475700700508A63 /* AppDelegate.swift */,
 				3A67CAF82475700700508A63 /* SceneDelegate.swift */,
-				3A67CB0A2475741800508A63 /* ToDo.swift */,
 				3A67CAFC2475700700508A63 /* Main.storyboard */,
+				3A67CB0A2475741800508A63 /* ToDo.swift */,
 				3A67CB1024777EB500508A63 /* ToDoCell.swift */,
 				3A67CB0C2475756D00508A63 /* ToDoTableViewController.swift */,
 				3A67CB0E24762F2A00508A63 /* ToDoDetailTableViewController.swift */,
