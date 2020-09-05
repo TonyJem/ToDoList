@@ -12,7 +12,7 @@ This App manages a list of ToDo items and stores it away for later retrieval. Us
 
 #### This app handles the following actions:
 
-  1. Display the list.
+  1. Display the list, containing data retrieved from disk.
   
   2. Add items to the list.
   
