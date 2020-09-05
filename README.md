@@ -33,7 +33,7 @@ There are two table views used for that app:
 
 1. The __first Table View__ is a Prototype Table View and initially is an empty table, where User can start adding an information about his favorite Books.
 
-<img src="/ToDoList-screens/to-do-list_01.png" width="33%"> <img src="/ToDoList-screens/to-do-list_02.png" width="33%">
+<img src="/ToDoList-screens/to-do-list_01.png" width="33%"> 
 
 After User has pressed _Add_ button, next will be initialized _second Table View_.
 <br>
@@ -45,7 +45,7 @@ After User has pressed _Add_ button, next will be initialized _second Table View
   * Genre
   * Length
   
-<img src="/ToDoList-screens/to-do-list_03.png" width="33%"> <img src="/ToDoList-screens/to-do-list_04.png" width="33%">
+<img src="/ToDoList-screens/to-do-list_02.png" width="33%"> 
 
 And the last section is for the _Save_ button.
 <br>
@@ -53,7 +53,7 @@ And the last section is for the _Save_ button.
 
 3. After information about Book is added and _Save_ button was pressed, App will come back to the first screen. Here again will be provided a list containing all saved Books with included recently saved Book:
 
-<img src="/ToDoList-screens/to-do-list_05.png" width="33%">
+<img src="/ToDoList-screens/to-do-list_03.png" width="33%"> <img src="/ToDoList-screens/to-do-list_04.png" width="33%"> <img src="/ToDoList-screens/to-do-list_05.png" width="33%">
 
 This list enables User to see all added Books, also select and edit each Book by tapping on it's row. For sure, is still possible to add next new Book by pressing _Add_ button in top-right screen corner.
 <br>
