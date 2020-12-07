@@ -1,11 +1,3 @@
-//
-//  ToDoDetailTableViewController.swift
-//  ToDoList
-//
-//  Created by Office-iMac on 2020-05-21.
-//  Copyright © 2020 Tony Jem. All rights reserved.
-//
-
 import UIKit
 import MessageUI
 

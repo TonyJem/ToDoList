@@ -1,9 +1,3 @@
-//
-//  ToDoTableViewController.swift
-//  ToDoList
-//
-//  Created by Office-iMac on 2020-05-20.
-//  Copyright © 2020 Tony Jem. All rights reserved.
 // For SearchBar with some ajustments was used code from this tutorial: https://www.raywenderlich.com/4363809-uisearchcontroller-tutorial-getting-started#toc-anchor-003
 
 import UIKit
@@ -67,13 +61,6 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
     var isFiltering: Bool { // Computed property to determnine if user is currently filtering results or not.
       return searchController.isActive && !isSearchBarEmpty
     }
-    
-    
-    
-    
-    
-    
-    
     
 //    Filter ToDo's titles based on searchText:
     func filterContentForSearchText(_ searchText: String) {

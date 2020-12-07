@@ -1,11 +1,3 @@
-//
-//  ToDoCell.swift
-//  ToDoList
-//
-//  Created by Office-iMac on 2020-05-22.
-//  Copyright © 2020 Tony Jem. All rights reserved.
-//
-
 import UIKit
 
 protocol ToDoCellDelegate: class {
